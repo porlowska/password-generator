@@ -87,21 +87,57 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+// Java Script Utilities Function getRandom
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+//create empty characters password array 
+var passwordLength;
+var passwordChar;
+var newPassword;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  do {
+    passwordLength = prompt ("Choose lenght of your password (8-128 characters):");
+    if (passwordLength >= 8 && passwordLength<= 128){
+      passwordLength = Number(passwordLength);
+    var specialCharConfirm = confirm("Would you like spectial characters in your password?");
+        if(specialCharConfirm == true){
+          passwordChar = passwordChar.concat(specialCharacters);
+        }
+      var numbersConfirm = confirm("Would you like numbers in your password?");
+        if (numbersConfirm == true){
+          passwordChar = passwordChar.concat(numericCharacters);
+        }
+      var upperConfirm = confirm("Would you like upper case letters in your password?");
+        if (upperConfirm == true){
+          passwordChar = passwordChar.concat(upperCasedCharacters);
+        }
+      var lowerConfirm = confirm("Would you like lower case letters in your password?");
+        if (lowerConfirm == true){
+          passwordChar = passwordChar.concat(lowerCasedCharacters);
+        }
+    }
+  } while (passwordLength <= 8 || passwordLength >= 128)
 }
-
-// Function for getting a random element from an array
 function getRandom(arr) {
-
+  for(var i = 0; i < (passwordLength-1); i++){
+    newPassword = newPassword + getRandom(0, passwordChar.length)
+  }
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  //call  funton to get password options - it will give us length and characters
+  var passwordOptions = getPasswordOptions();
+  //call get Random funtion - it will give us the whole password
+  var getPassword = getRandom(passwordChar);
 
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
