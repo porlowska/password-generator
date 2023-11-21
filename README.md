@@ -10,7 +10,7 @@ The employee can choose the lenght of the password between 8 and 128 charracgter
 
 This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript.
 
-To access the password generatio please [follow the link]().
+To access the password generator please [follow the link](https://porlowska.github.io/password-generator/).
 
 Then press "generate password" button.
 
@@ -19,8 +19,6 @@ Then press "generate password" button.
 
 This app can be used by any person who would like to create secure password, with randomly generated characters, to protect them online. It generates strong passwords, that are difficult to crack, and therfore their data will be protected. 
 These passwords are one time only, and not stored in any database.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
 [Password Length](images/prompt.png) [Password Character](images/confirm.png)
 [Sample Password](images/password.png)
