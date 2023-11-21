@@ -104,10 +104,12 @@ function getPasswordOptions() {
     passwordLength = prompt ("Choose lenght of your password (8-128 characters):"); 
     if (passwordLength >= 8 && passwordLength<= 128){
       passwordLength = parseInt(passwordLength);
+        //confrm popups to choose characters
       var specialCharConfirm = confirm("Would you like spectial characters in your password?");
       var numbersConfirm = confirm("Would you like numbers in your password?");
       var upperConfirm = confirm("Would you like upper case letters in your password?");
       var lowerConfirm = confirm("Would you like lower case letters in your password?");
+
         if (specialCharConfirm){
           passwordChar = passwordChar.concat(specialCharacters);
         } 
@@ -120,7 +122,6 @@ function getPasswordOptions() {
         if (lowerConfirm){
           passwordChar = passwordChar.concat(lowerCasedCharacters);
         }
-        
     }
   } while ((passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) && passwordLength==true); //if user choses wrong lenght of the password or types anyting different than number, AND the prompt is true it enters the loop. 
   return passwordChar;
@@ -147,7 +148,7 @@ function generatePassword() {
   }else{
     getPassword = getRandomPassword(passwordOptions); // generates new password
   }
-  return getPassword
+  return getPassword;
 }
 
 // Get references to the #generate element
@@ -157,7 +158,6 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword(); // new password is inserted here to display on the website
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
