@@ -87,22 +87,21 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-// Java Script Utilities Function getRandom
-//Loops index numbers - we need the length of the all char array as max
+
+// Java Script Utilities Function getRandom 
 function getRandom(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-//create empty characters password array 
-var passwordLength;
 
+var passwordLength; // chosen password lenght - global variable
 
 // Function to prompt user for password options
 function getPasswordOptions() {
   var passwordChar = [];
   do {
-    passwordLength = prompt ("Choose lenght of your password (8-128 characters):");
+    passwordLength = prompt ("Choose lenght of your password (8-128 characters):"); 
     if (passwordLength >= 8 && passwordLength<= 128){
       passwordLength = parseInt(passwordLength);
       var specialCharConfirm = confirm("Would you like spectial characters in your password?");
@@ -123,8 +122,7 @@ function getPasswordOptions() {
         }
         
     }
-  } while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) //what for letter??
-console.log(passwordChar)
+  } while ((passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) && passwordLength==true) //if user choses wrong lenght of the password or types anuting different than number
   return passwordChar
 }
 // from get password function i need ot habe lengt and the array! to run get random. 
