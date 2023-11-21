@@ -122,51 +122,44 @@ function getPasswordOptions() {
         }
         
     }
-  } while ((passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) && passwordLength==true) //if user choses wrong lenght of the password or types anuting different than number
-  return passwordChar
+  } while ((passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) && passwordLength==true); //if user choses wrong lenght of the password or types anyting different than number, AND the prompt is true it enters the loop. 
+  return passwordChar;
 }
-// from get password function i need ot habe lengt and the array! to run get random. 
-
-function getRandomPassword(optionsLength) { // i need to loop through nubers and then find the index to return password char. 
+//function to get random password == random characters form the array
+function getRandomPassword(arr) { 
   var newPassword ="";
   var newChar;
   var j;
-  for(var i = 0; i < passwordLength; i++){ // i need to loop same amout as the lenght of the pasword
-    j = getRandom(0, (optionsLength.length-1)) // it will give me index number of char in array 
-    newChar = optionsLength[j]
-    console.log(j, optionsLength[j])
-    newPassword = newPassword + newChar
+  for(var i = 0; i < passwordLength; i++){ 
+    j = getRandom(0, (arr.length-1)); // get rando index number form the array
+    newChar = arr[j];                 // convert that index number into a new character
+    newPassword = newPassword + newChar;
   }
-  console.log(newPassword)
-  return newPassword
+  return newPassword;
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  //call  funton to get password options - it will give us length and characters
   var passwordOptions = getPasswordOptions();
-  //call get Random funtion - it will give us the whole password
   var getPassword;
-  if (passwordOptions.length == 0){
+  if (passwordOptions.length == 0){ //checks if the array is empty == user didn't chose any characters
     getPassword = "To generate a password please choose at least one type of characters. To try again press the button below!";
   }else{
-    getPassword = getRandomPassword(passwordOptions);
+    getPassword = getRandomPassword(passwordOptions); // generates new password
   }
-  
   return getPassword
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(); // new password is inserted here to display on the website
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword); 
