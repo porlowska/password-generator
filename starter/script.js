@@ -121,9 +121,10 @@ function getPasswordOptions() {
         if (lowerConfirm){
           passwordChar = passwordChar.concat(lowerCasedCharacters);
         }
+        
     }
   } while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) //what for letter??
-
+console.log(passwordChar)
   return passwordChar
 }
 // from get password function i need ot habe lengt and the array! to run get random. 
@@ -147,8 +148,13 @@ function generatePassword() {
   //call  funton to get password options - it will give us length and characters
   var passwordOptions = getPasswordOptions();
   //call get Random funtion - it will give us the whole password
-  var getPassword = getRandomPassword(passwordOptions);
-
+  var getPassword;
+  if (passwordOptions.length == 0){
+    getPassword = "To generate a password please choose at least one type of characters. To try again press the button below!";
+  }else{
+    getPassword = getRandomPassword(passwordOptions);
+  }
+  
   return getPassword
 }
 
