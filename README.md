@@ -20,8 +20,8 @@ Then press "generate password" button.
 This app can be used by any person who would like to create secure password, with randomly generated characters, to protect them online. It generates strong passwords, that are difficult to crack, and therfore their data will be protected. 
 These passwords are one time only, and not stored in any database.
 
-[Password Length](images/prompt.png) [Password Character](images/confirm.png)
-[Sample Password](images/password.png)
+![Password Length](images/prompt.png) ![Password Character](images/confirm.png)
+![Sample Password](images/password.png)
 
 ## Credits
 
